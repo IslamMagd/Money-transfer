@@ -23,6 +23,23 @@ class AuthRepositoryImpl @Inject constructor(
     private val moneyTransferService: MoneyTransferService,
     private val sharedPreferences: SharedPreferences
 ) : AuthRepository {
+    override suspend fun registerUser(signupParameters: SignupParameters): Flow<Status<SignUpResult?>> {
+        return flow {
+            emit(Status.Loading)
+            val result =
+                moneyTransferService.registerUser(SignupParametersMapper().map(signupParameters))
+            if (result.isSuccessful) {
+                emit(Status.Success(result.body()?.let { SignupResponseMapper().map(it) }))
+                Log.d("trace", "${result.body()}")
+            } else {
+                val errorBody = result.errorBody()?.string()
+                val errorResponse = errorBody?.let { RepositoryUtils.parseErrorResponse(it) }
+                val errorMessage = errorResponse?.message ?: "Unknown error"
+                Log.d("trace", "$errorMessage")
+                emit(Status.Error(errorMessage))
+            }
+        }
+    }
 
     override suspend fun loginUser(loginParameters: LoginParameters): Flow<Status<LoginResult?>> {
         return flow {
@@ -58,4 +75,7 @@ class AuthRepositoryImpl @Inject constructor(
         return sharedPreferences.getPassword()
     }
 
+    override fun saveUserName(userName: String) {
+       return sharedPreferences.saveUserName(userName)
+    }
 }

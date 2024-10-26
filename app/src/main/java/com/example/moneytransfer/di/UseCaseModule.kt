@@ -54,6 +54,12 @@ object UseCaseModule {
         return SaveTokenUseCase(authRepository)
     }
 
+    @Provides
+    fun provideRegisterUseCase(
+        authRepository: AuthRepository
+    ): RegisterUserUseCase {
+        return RegisterUserUseCase(authRepository)
+    }
 
     @Provides
     fun providegetEmailUseCae(
@@ -77,6 +83,12 @@ object UseCaseModule {
     }
 
 
+    @Provides
+    fun provideSaveUserNameUseCae(
+        authRepository: AuthRepository
+    ): SaveUserNameUseCase {
+        return SaveUserNameUseCase(authRepository)
+    }
     @Provides
     fun provideValidateEmailUseCase(
     ): ValidateEmailUseCase {

@@ -6,4 +6,11 @@ data class LoginParameters(
     val password: String
 )
 
+data class SignupParameters(
+    val username: String,
+    val password: String,
+    val birthdate: String,
+    val email: String,
+    val country: String
+)
 

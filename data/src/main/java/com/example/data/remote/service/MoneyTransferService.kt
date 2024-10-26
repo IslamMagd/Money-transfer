@@ -23,6 +23,8 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MoneyTransferService {
+    @POST("/api/register")
+    suspend fun registerUser(@Body signupRequset: SignupRequset): Response<SignUpResponse>
 
     @POST("/api/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>

@@ -8,6 +8,7 @@ import com.example.domain.model.Status
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
+    suspend fun registerUser(signupParameters: SignupParameters): Flow<Status<SignUpResult?>>
 
     suspend fun loginUser(loginParameters: LoginParameters): Flow<Status<LoginResult?>>
 
@@ -19,4 +20,5 @@ interface AuthRepository {
 
     fun getPassword(): String?
 
+    fun saveUserName(userName: String)
 }
