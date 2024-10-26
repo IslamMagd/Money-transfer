@@ -29,5 +29,9 @@ interface MoneyTransferService {
     @POST("/api/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
+    @POST("/api/create_account")
+    suspend fun addCard(@Body addCardRequest: AddCardRequest): Response<AddCardResponse>
 
+    @POST("/api/verify-otp")
+    suspend fun verifyOtp(@Body verifyOtpRequest: VerifyOtpRequest): Response<Void>
 }

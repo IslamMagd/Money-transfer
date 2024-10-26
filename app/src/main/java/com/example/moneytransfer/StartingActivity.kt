@@ -20,14 +20,21 @@ class StartingActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        val destination = intent.getStringExtra("destination")
 
         setContent {
             MoneyTransferTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
+                    val startDestination = when (destination) {
+                        "login" -> SIGNIN
+                        else -> SPLASH
+                    }
+
                     StartNavHost(
                         modifier = Modifier.padding(innerPadding),
                         SPLASH
+                        startDestination
                     )
 
                 }

@@ -1,5 +1,14 @@
 package com.example.domain.model
 
+data class AddCardParameters(
+    val cardholderName: String,
+    val cardNumber: String,
+    val expiryDate: String,
+    val cvv: String,
+    val isActive: Boolean,
+    val cardCurrency: String,
+    val balance: Double
+)
 
 data class LoginParameters(
     val email: String,
@@ -14,3 +23,7 @@ data class SignupParameters(
     val country: String
 )
 
+data class VerifyOtpParameters(
+    val otp: String,
+    val accountNumber: String
+)

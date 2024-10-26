@@ -32,4 +32,11 @@ object RepositoryModule {
         return AuthRepositoryImpl(moneyTransferService, sharedPreferences)
     }
 
+    @Provides
+    fun provideCardRepository(
+        moneyTransferService: MoneyTransferService,
+        sharedPreferences: SharedPreferences
+    ): AccountRepository {
+        return AccountRepositoryImpl(moneyTransferService, sharedPreferences)
+    }
 }

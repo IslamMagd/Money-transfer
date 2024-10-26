@@ -78,4 +78,24 @@ class AuthRepositoryImpl @Inject constructor(
     override fun saveUserName(userName: String) {
        return sharedPreferences.saveUserName(userName)
     }
+
+    override fun getUserName(): String? {
+        return sharedPreferences.getUserName()
+    }
+
+    override suspend fun logoutUser(): Flow<Status<Unit>> {
+        return flow {
+            emit(Status.Loading)
+            val result = moneyTransferService.logoutUser()
+            if (result.isSuccessful){
+                emit(Status.Success(Unit))
+            }
+            else{
+                val errorBody = result.errorBody()?.string()
+                val errorResponse = errorBody?.let { parseErrorResponse(it) }
+                val errorMessage = errorResponse?.message ?: "Unknown error"
+                emit(Status.Error(errorMessage))
+            }
+        }
+    }
 }

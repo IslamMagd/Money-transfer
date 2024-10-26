@@ -29,9 +29,11 @@ object Route {
 
 @Composable
 fun StartNavHost(modifier: Modifier = Modifier) {
+fun StartNavHost(modifier: Modifier = Modifier, destination: String) {
 
     val navController = rememberNavController()
     NavHost(navController = navController, SPLASH) {
+    NavHost(navController = navController, destination) {
 
         composable(route = SPLASH) { SplashScreen(navController = navController) }
         composable(route = HOME) { OnBoardingScreen(navController = navController) }

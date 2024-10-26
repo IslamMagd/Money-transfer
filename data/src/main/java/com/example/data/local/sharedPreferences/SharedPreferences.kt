@@ -8,5 +8,10 @@ interface SharedPreferences {
     fun getEmail(): String?
     fun getPassword(): String?
 
+    fun saveCardInformation(cardholderName: String, cardNumber: String, balance: String)
+    fun getCardNumber(): String?
+    fun getCardHolderName(): String?
+    fun getSavedBalance(): String?
+    fun saveUserName(userName: String)
 
 }

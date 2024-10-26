@@ -61,6 +61,27 @@ object UseCaseModule {
         return RegisterUserUseCase(authRepository)
     }
 
+
+    @Provides
+    fun provideAddCardUseCase(
+        accountRepository: AccountRepository
+    ): AddCardUseCase {
+        return AddCardUseCase(accountRepository)
+    }
+
+    @Provides
+    fun provideGetBalanceUseCase(
+        accountRepository: AccountRepository
+    ): GetBalanceUseCase {
+        return GetBalanceUseCase(accountRepository)
+    }
+
+    @Provides
+    fun provideVerifyOtpUseCase(
+        accountRepository: AccountRepository
+    ): VerifyOtpUseCase {
+        return VerifyOtpUseCase(accountRepository)
+    }
     @Provides
     fun providegetEmailUseCae(
         authRepository: AuthRepository
@@ -89,6 +110,21 @@ object UseCaseModule {
     ): SaveUserNameUseCase {
         return SaveUserNameUseCase(authRepository)
     }
+
+    @Provides
+    fun provideSaveCardInfoUseCae(
+        accountRepository: AccountRepository
+    ): SaveCardInfoUseCase {
+        return SaveCardInfoUseCase(accountRepository)
+    }
+
+    @Provides
+    fun provideGetCardNumberUseCae(
+        accountRepository: AccountRepository
+    ): GetCardNumberUseCase {
+        return GetCardNumberUseCase(accountRepository)
+    }
+
     @Provides
     fun provideValidateEmailUseCase(
     ): ValidateEmailUseCase {
