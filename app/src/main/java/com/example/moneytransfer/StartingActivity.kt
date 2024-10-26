@@ -25,6 +25,10 @@ class StartingActivity : ComponentActivity() {
             MoneyTransferTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
+                    StartNavHost(
+                        modifier = Modifier.padding(innerPadding),
+                        SPLASH
+                    )
 
                 }
             }
