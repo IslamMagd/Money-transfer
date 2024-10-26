@@ -69,6 +69,13 @@ object UseCaseModule {
         return AddCardUseCase(accountRepository)
     }
 
+
+    @Provides
+    fun provideGetTransactionsUseCase(
+        transacionRepository: TransacionRepository
+    ): GetTransactionsUseCase {
+        return GetTransactionsUseCase(transacionRepository)
+    }
     @Provides
     fun provideGetBalanceUseCase(
         accountRepository: AccountRepository
@@ -103,6 +110,12 @@ object UseCaseModule {
         return SaveCredentialsUseCase(authRepository)
     }
 
+    @Provides
+    fun provideGetUserNameUseCae(
+        authRepository: AuthRepository
+    ): GetUserNameUseCase {
+        return GetUserNameUseCase(authRepository)
+    }
 
     @Provides
     fun provideSaveUserNameUseCae(

@@ -10,6 +10,9 @@ data class AddCardParameters(
     val balance: Double
 )
 
+data class BalanceParameters(
+    val cardNumber: String
+)
 data class LoginParameters(
     val email: String,
     val password: String

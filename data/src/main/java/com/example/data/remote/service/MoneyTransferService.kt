@@ -32,6 +32,12 @@ interface MoneyTransferService {
     @POST("/api/create_account")
     suspend fun addCard(@Body addCardRequest: AddCardRequest): Response<AddCardResponse>
 
+
+    @GET("/api/transactions")
+    suspend fun getTransactions(): Response<List<TransactionResponse>>
+
+    @GET("/api/balance/{accountNumber}")
+    suspend fun getBalance(@Path("accountNumber") accountNumber: String): Response<BalanceResponse>
     @POST("/api/verify-otp")
     suspend fun verifyOtp(@Body verifyOtpRequest: VerifyOtpRequest): Response<Void>
 }

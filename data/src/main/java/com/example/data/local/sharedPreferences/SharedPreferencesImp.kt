@@ -36,6 +36,7 @@ class SharedPreferencesImp @Inject constructor(
     override fun getPassword(): String? {
         return sharedPreferences.getString("password", "")
     }
+
     override fun saveCardInformation(cardholderName: String, cardNumber: String, balance: String) {
         with(sharedPreferences.edit()) {
             putString("cardHolderName", cardholderName)
@@ -52,13 +53,19 @@ class SharedPreferencesImp @Inject constructor(
     override fun getCardHolderName(): String? {
         return sharedPreferences.getString("cardHolderName", null)
     }
+
     override fun getSavedBalance(): String? {
         return sharedPreferences.getString("balance", null)
     }
+
     override fun saveUserName(userName: String) {
         with(sharedPreferences.edit()) {
             putString("userName", userName)
             apply()
         }
+    }
+
+    override fun getUserName(): String? {
+        return sharedPreferences.getString("userName", null)
     }
 }

@@ -12,6 +12,8 @@ interface SharedPreferences {
     fun getCardNumber(): String?
     fun getCardHolderName(): String?
     fun getSavedBalance(): String?
+
     fun saveUserName(userName: String)
+    fun getUserName(): String?
 
 }

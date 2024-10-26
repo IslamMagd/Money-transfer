@@ -14,6 +14,8 @@ interface AccountRepository {
     suspend fun verifyOtp(verifyOtpParameters: VerifyOtpParameters): Flow<Status<Unit>>
 
 
+    suspend fun getBalance(accountNumber: String): Flow<Status<Balance?>>
+
     fun saveCardInformation(cardholderName: String, cardNumber: String, balance: String)
     fun getCardNumber(): String?
     fun getCardHolderName(): String?

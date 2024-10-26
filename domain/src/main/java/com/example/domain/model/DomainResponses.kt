@@ -6,6 +6,9 @@ data class AddCardResult(
     val balance: String
 )
 
+data class Balance(
+    val balance: Double
+)
 data class LoginResult(
     val token: String
 )
@@ -15,3 +18,11 @@ data class SignUpResult(
     val  message: String?
 )
 
+
+data class TransactionResult(
+    val fromAccountNumber: String,
+    val toAccountNumber: String,
+    val amount: Double,
+    val transactionDate: String,
+    val transactionTime: String,
+)
