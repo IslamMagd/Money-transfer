@@ -65,7 +65,35 @@ fun MoreScreen(navController: NavController, viewModel: MoreViewModel = hiltView
     val sheetState = rememberModalBottomSheetState()
     val context = LocalContext.current
 
+    val logOutState by viewModel.logOutState.collectAsState()
 
+    when (logOutState) {
+        is Status.Loading -> {
+            Box(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            }
+        }
+
+        is Status.Success -> {
+            val intent = Intent(context, StartingActivity::class.java)
+            intent.putExtra("destination", "login")
+            context.startActivity(intent)
+
+            val editor = context.getSharedPreferences("user_data", Context.MODE_PRIVATE).edit()
+            editor.remove("token")
+            editor.apply()
+        }
+
+        is Status.Error -> {
+            val errorMessage = (logOutState as Status.Error).message
+            Toast.makeText(context, "$errorMessage", Toast.LENGTH_SHORT).show()
+        }
+
+        null -> {
+        }
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -102,7 +130,7 @@ fun MoreScreen(navController: NavController, viewModel: MoreViewModel = hiltView
             text = "Logout",
             showDivider = false,
             onItemClick = {
-                
+                viewModel.logOutUser()
             }
         )
     }

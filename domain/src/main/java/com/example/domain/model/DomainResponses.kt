@@ -9,6 +9,11 @@ data class AddCardResult(
 data class Balance(
     val balance: Double
 )
+
+data class CurrencyConversionResult(
+    val rate: Double,
+    val convertedAmount: Double
+)
 data class LoginResult(
     val token: String
 )

@@ -29,6 +29,8 @@ interface MoneyTransferService {
     @POST("/api/login")
     suspend fun loginUser(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
+    @POST("/api/logout")
+    suspend fun logoutUser(): Response<Void>
     @POST("/api/create_account")
     suspend fun addCard(@Body addCardRequest: AddCardRequest): Response<AddCardResponse>
 

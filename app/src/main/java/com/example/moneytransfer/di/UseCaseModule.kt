@@ -61,6 +61,12 @@ object UseCaseModule {
         return RegisterUserUseCase(authRepository)
     }
 
+    @Provides
+    fun provideLogoutUseCase(
+        authRepository: AuthRepository
+    ): LogoutUseCase {
+        return LogoutUseCase(authRepository)
+    }
 
     @Provides
     fun provideAddCardUseCase(

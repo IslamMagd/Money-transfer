@@ -26,6 +26,11 @@ data class SignupParameters(
     val country: String
 )
 
+data class TransferMoneyParameters(
+    val fromCardNumber : String,
+    val toCardNumber: String,
+    val amount: String
+)
 data class VerifyOtpParameters(
     val otp: String,
     val accountNumber: String
