@@ -31,6 +31,12 @@ interface MoneyTransferService {
 
     @POST("/api/logout")
     suspend fun logoutUser(): Response<Void>
+
+    @POST("/api/update-user")
+    suspend fun editProfile(@Body editProfileRequest: EditProfileRequest): Response<Void>
+
+    @GET("/api/user")
+    suspend fun getProfile(): Response<ProfileResponse>
     @POST("/api/create_account")
     suspend fun addCard(@Body addCardRequest: AddCardRequest): Response<AddCardResponse>
 

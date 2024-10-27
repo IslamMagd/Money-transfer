@@ -14,6 +14,7 @@ data class CurrencyConversionResult(
     val rate: Double,
     val convertedAmount: Double
 )
+
 data class LoginResult(
     val token: String
 )
@@ -23,6 +24,13 @@ data class SignUpResult(
     val  message: String?
 )
 
+data class Profile(
+    val fullname: String,
+    val email: String,
+    val dateOfBirth: String,
+    val country: String,
+    val accountNumber: String
+)
 
 data class TransactionResult(
     val fromAccountNumber: String,
@@ -31,3 +39,4 @@ data class TransactionResult(
     val transactionDate: String,
     val transactionTime: String,
 )
+

@@ -23,4 +23,6 @@ interface AuthRepository {
     fun saveUserName(userName: String)
 
     fun getUserName(): String?
+
+    suspend fun logoutUser(): Flow<Status<Unit>>
 }

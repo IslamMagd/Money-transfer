@@ -13,6 +13,12 @@ data class AddCardParameters(
 data class BalanceParameters(
     val cardNumber: String
 )
+
+data class EditProfileParameters(
+    val username: String,
+    val birthdate: String,
+    val country: String
+)
 data class LoginParameters(
     val email: String,
     val password: String

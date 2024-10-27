@@ -124,10 +124,23 @@ object UseCaseModule {
     }
 
     @Provides
+    fun provideEditProfileUseCase(
+        profileRepository: ProfileRepository
+    ): EditProfileUseCase {
+        return EditProfileUseCase(profileRepository)
+    }
+    @Provides
     fun provideConvertCurrencyUseCase(
         currencyRepository: CurrencyRepository
     ): ConvertCurrencyUseCase {
         return ConvertCurrencyUseCase(currencyRepository)
+    }
+
+    @Provides
+    fun providegetProfileUseCae(
+        profileRepository: ProfileRepository
+    ): GetProfileUseCase {
+        return GetProfileUseCase(profileRepository)
     }
     @Provides
     fun providegetEmailUseCae(
