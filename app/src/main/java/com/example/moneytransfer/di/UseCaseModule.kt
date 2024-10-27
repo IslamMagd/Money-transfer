@@ -69,6 +69,12 @@ object UseCaseModule {
         return AddCardUseCase(accountRepository)
     }
 
+    @Provides
+    fun provideTransferMoneyUseCase(
+        accountRepository: AccountRepository
+    ): TransferMoneyUseCase {
+        return TransferMoneyUseCase(accountRepository)
+    }
 
     @Provides
     fun provideGetTransactionsUseCase(
