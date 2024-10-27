@@ -33,7 +33,6 @@ class StartingActivity : ComponentActivity() {
 
                     StartNavHost(
                         modifier = Modifier.padding(innerPadding),
-                        SPLASH
                         startDestination
                     )
 
