@@ -80,7 +80,6 @@ fun HomeScreen(
         val context = LocalContext.current
         TopSection(context)
         BalanceSection(viewModel, context)
-        ServicesSection()
         RecentTransactionsSection(navController, viewModel, context)
     }
 
@@ -229,79 +228,6 @@ fun BalanceSection(
     }
 }
 
-@Composable
-fun ServicesSection(modifier: Modifier = Modifier) {
-    Card(
-        colors = CardDefaults.cardColors(containerColor = GrayG0),
-        modifier = modifier
-            .fillMaxWidth()
-            .height(180.dp)
-            .padding(top = 16.dp)
-    ) {
-        Column(
-            modifier = modifier
-                .padding(12.dp)
-                .fillMaxSize()
-        ) {
-            Text(
-                text = "Services",
-                color = GrayG700,
-                modifier = modifier
-                    .padding(bottom = 16.dp)
-            )
-            ServiceList(services = ServiceDataSource().getServiceData())
-        }
-    }
-}
-
-@Composable
-fun ServiceListItem(service: Service, modifier: Modifier = Modifier) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Card(
-            colors = CardDefaults.cardColors(containerColor = GrayG30),
-            modifier = modifier
-                .size(68.dp),
-            onClick = { }
-
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(8.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = service.icon),
-                    contentDescription = stringResource(id = service.name),
-                    tint = YelloS400,
-                    modifier = modifier.size(40.dp),
-
-                    )
-            }
-
-        }
-        Text(
-            text = stringResource(id = service.name),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold
-        )
-    }
-
-}
-
-@Composable
-fun ServiceList(services: List<Service>, modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        services.forEach { service ->
-            ServiceListItem(service = service)
-        }
-    }
-}
 
 @Composable
 fun RecentTransactionsSection(
