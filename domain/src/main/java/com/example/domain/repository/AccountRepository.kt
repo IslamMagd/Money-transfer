@@ -13,6 +13,7 @@ interface AccountRepository {
 
     suspend fun verifyOtp(verifyOtpParameters: VerifyOtpParameters): Flow<Status<Unit>>
 
+    suspend fun transferMoney(transferMoneyParameters: TransferMoneyParameters): Flow<Status<Unit>>
 
     suspend fun getBalance(accountNumber: String): Flow<Status<Balance?>>
 

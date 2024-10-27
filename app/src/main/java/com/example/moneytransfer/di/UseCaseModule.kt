@@ -89,6 +89,27 @@ object UseCaseModule {
     ): VerifyOtpUseCase {
         return VerifyOtpUseCase(accountRepository)
     }
+
+    @Provides
+    fun provideAddRecipientUseCase(
+        favoriteRecipientRepository: FavoriteRecipientRepository
+    ): AddFavoriteRecipientUscCase {
+        return AddFavoriteRecipientUscCase(favoriteRecipientRepository)
+    }
+
+    @Provides
+    fun provideGeAlltRecipientsUseCase(
+        favoriteRecipientRepository: FavoriteRecipientRepository
+    ): GetAllRecipentsUseCase {
+        return GetAllRecipentsUseCase(favoriteRecipientRepository)
+    }
+
+    @Provides
+    fun provideDeleteRecipientUseCase(
+        favoriteRecipientRepository: FavoriteRecipientRepository
+    ): DeleteRecipentuseCase {
+        return DeleteRecipentuseCase(favoriteRecipientRepository)
+    }
     @Provides
     fun providegetEmailUseCae(
         authRepository: AuthRepository

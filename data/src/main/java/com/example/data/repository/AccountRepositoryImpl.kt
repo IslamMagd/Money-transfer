@@ -64,6 +64,22 @@ class AccountRepositoryImpl @Inject constructor(
     }
 
 
+    override suspend fun getBalance(accountNumber: String): Flow<Status<Balance?>> {
+        return flow {
+            emit(Status.Loading)
+            val result = moneyTransferService.getBalance(accountNumber)
+            if (result.isSuccessful) {
+                emit(Status.Success(result.body()?.let { BalanceResponseMapper().map(it) }))
+            } else {
+                val errorBody = result.errorBody()?.string()
+                val errorResponse = errorBody?.let { parseErrorResponse(it) }
+                val errorMessage = errorResponse?.message ?: "Unknown error"
+                Log.d("trace", "$errorMessage")
+                emit(Status.Error(errorMessage))
+            }
+        }
+    }
+
     override fun saveCardInformation(cardholderName: String, cardNumber: String, balance: String) {
         sharedPreferences.saveCardInformation(cardholderName, cardNumber, balance)
     }

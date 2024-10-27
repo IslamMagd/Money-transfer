@@ -21,4 +21,6 @@ interface AuthRepository {
     fun getPassword(): String?
 
     fun saveUserName(userName: String)
+
+    fun getUserName(): String?
 }
