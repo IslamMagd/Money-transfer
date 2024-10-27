@@ -37,6 +37,11 @@ interface MoneyTransferService {
 
     @GET("/api/user")
     suspend fun getProfile(): Response<ProfileResponse>
+
+    @POST("/api/reset-password")
+    suspend fun resetPassword(@Body changePasswordRequest: ChangePasswordRequest): Response<Void>
+
+
     @POST("/api/create_account")
     suspend fun addCard(@Body addCardRequest: AddCardRequest): Response<AddCardResponse>
 
@@ -48,6 +53,7 @@ interface MoneyTransferService {
 
     @GET("/api/balance/{accountNumber}")
     suspend fun getBalance(@Path("accountNumber") accountNumber: String): Response<BalanceResponse>
+
     @POST("/api/verify-otp")
     suspend fun verifyOtp(@Body verifyOtpRequest: VerifyOtpRequest): Response<Void>
 
@@ -57,4 +63,5 @@ interface MoneyTransferService {
         @Query("to") toCurrency: String,
         @Query("amount") amount: Double,
     ): Response<ConvertCurrencyResponse>
+
 }

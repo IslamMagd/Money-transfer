@@ -12,4 +12,7 @@ interface ProfileRepository {
     suspend fun editProfile(editProfileParameters: EditProfileParameters): Flow<Status<Unit>>
 
 
+    suspend fun changePassword(
+        changePasswordParameters: ChangePasswordParameters
+    ): Flow<Status<Unit>>
 }

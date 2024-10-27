@@ -53,4 +53,21 @@ class ProfileRepositoryImp @Inject constructor(
         }
     }
 
+    override suspend fun changePassword(
+        changePasswordParameters: ChangePasswordParameters
+    ): Flow<Status<Unit>> {
+        return flow {
+            emit(Status.Loading)
+            val result = moneyTransferService.resetPassword(ResetPasswordParamsMapper().map(changePasswordParameters))
+            if (result.isSuccessful){
+                emit(Status.Success(Unit))
+            }
+            else{
+                val errorBody = result.errorBody()?.string()
+                val errorResponse = errorBody?.let { parseErrorResponse(it) }
+                val errorMessage = errorResponse?.message ?: "Unknown error"
+                emit(Status.Error(errorMessage))
+            }
+        }
+    }
 }

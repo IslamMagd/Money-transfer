@@ -88,6 +88,7 @@ object UseCaseModule {
     ): GetTransactionsUseCase {
         return GetTransactionsUseCase(transacionRepository)
     }
+
     @Provides
     fun provideGetBalanceUseCase(
         accountRepository: AccountRepository
@@ -129,6 +130,14 @@ object UseCaseModule {
     ): EditProfileUseCase {
         return EditProfileUseCase(profileRepository)
     }
+
+    @Provides
+    fun provideChangePasswordUseCase(
+        profileRepository: ProfileRepository
+    ): ChangePasswordUseCase {
+        return ChangePasswordUseCase(profileRepository)
+    }
+
     @Provides
     fun provideConvertCurrencyUseCase(
         currencyRepository: CurrencyRepository
@@ -142,6 +151,7 @@ object UseCaseModule {
     ): GetProfileUseCase {
         return GetProfileUseCase(profileRepository)
     }
+
     @Provides
     fun providegetEmailUseCae(
         authRepository: AuthRepository

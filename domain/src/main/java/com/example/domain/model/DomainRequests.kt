@@ -14,11 +14,17 @@ data class BalanceParameters(
     val cardNumber: String
 )
 
+data class ChangePasswordParameters(
+    val currentPassword: String,
+    val newPassword: String
+)
+
 data class EditProfileParameters(
     val username: String,
     val birthdate: String,
     val country: String
 )
+
 data class LoginParameters(
     val email: String,
     val password: String
@@ -37,7 +43,9 @@ data class TransferMoneyParameters(
     val toCardNumber: String,
     val amount: String
 )
+
 data class VerifyOtpParameters(
     val otp: String,
     val accountNumber: String
 )
+
