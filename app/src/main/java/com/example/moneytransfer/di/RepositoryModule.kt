@@ -46,4 +46,11 @@ object RepositoryModule {
     ): FavoriteRecipientRepository {
         return FavoriteRecipientRepositoryImp(favoriteRecipientDao)
     }
+
+    @Provides
+    fun provideCurrencyRepository(
+        moneyTransferService: MoneyTransferService
+    ): CurrencyRepository {
+        return CurrencyRepositoryImpl(moneyTransferService)
+    }
 }

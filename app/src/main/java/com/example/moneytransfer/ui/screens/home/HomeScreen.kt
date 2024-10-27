@@ -24,7 +24,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -36,11 +35,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -49,18 +45,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.domain.model.Balance
-import com.example.domain.model.Service
 import com.example.domain.model.Status
 import com.example.domain.model.TransactionResult
 import com.example.moneytransfer.R
-import com.example.moneytransfer.ServiceDataSource
 import com.example.moneytransfer.navigation.BottomBarRoutes
 import com.example.moneytransfer.ui.theme.GrayG0
-import com.example.moneytransfer.ui.theme.GrayG30
-import com.example.moneytransfer.ui.theme.GrayG700
 import com.example.moneytransfer.ui.theme.RedP300
 import com.example.moneytransfer.ui.theme.RedP50
-import com.example.moneytransfer.ui.theme.YelloS400
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
@@ -227,7 +218,6 @@ fun BalanceSection(
         }
     }
 }
-
 
 @Composable
 fun RecentTransactionsSection(

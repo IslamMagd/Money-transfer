@@ -40,4 +40,11 @@ interface MoneyTransferService {
     suspend fun getBalance(@Path("accountNumber") accountNumber: String): Response<BalanceResponse>
     @POST("/api/verify-otp")
     suspend fun verifyOtp(@Body verifyOtpRequest: VerifyOtpRequest): Response<Void>
+
+    @GET("/api/convert")
+    suspend fun convertCurrency(
+        @Query("from") fromCurrency: String,
+        @Query("to") toCurrency: String,
+        @Query("amount") amount: Double,
+    ): Response<ConvertCurrencyResponse>
 }

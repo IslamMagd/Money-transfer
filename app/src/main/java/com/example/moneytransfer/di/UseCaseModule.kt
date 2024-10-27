@@ -110,6 +110,13 @@ object UseCaseModule {
     ): DeleteRecipentuseCase {
         return DeleteRecipentuseCase(favoriteRecipientRepository)
     }
+
+    @Provides
+    fun provideConvertCurrencyUseCase(
+        currencyRepository: CurrencyRepository
+    ): ConvertCurrencyUseCase {
+        return ConvertCurrencyUseCase(currencyRepository)
+    }
     @Provides
     fun providegetEmailUseCae(
         authRepository: AuthRepository

@@ -40,9 +40,9 @@ import com.example.moneytransfer.ui.screens.cards.otp.OTPConnectedScreen
 import com.example.moneytransfer.ui.screens.cards.otp.OTPEnteredScreen
 import com.example.moneytransfer.ui.screens.transactions.TransactionDetailsScreen
 import com.example.moneytransfer.ui.screens.transactions.TransactionsScreen
-import com.example.moneytransfer.ui.screens.transfer.ConfirmationScreen
-import com.example.moneytransfer.ui.screens.transfer.PaymentScreen
-import com.example.moneytransfer.ui.screens.transfer.TransferScreen
+import com.example.moneytransfer.ui.screens.transfer.confirmation.ConfirmationScreen
+import com.example.moneytransfer.ui.screens.transfer.payment.PaymentScreen
+import com.example.moneytransfer.ui.screens.transfer.amount.TransferScreen
 import com.google.gson.Gson
 
 
