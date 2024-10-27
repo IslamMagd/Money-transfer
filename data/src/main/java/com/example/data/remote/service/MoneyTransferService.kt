@@ -32,6 +32,8 @@ interface MoneyTransferService {
     @POST("/api/create_account")
     suspend fun addCard(@Body addCardRequest: AddCardRequest): Response<AddCardResponse>
 
+    @POST("/api/transfer")
+    suspend fun transferMoney(@Body transferMoneyRequst: TransferMoneyRequst): Response<Void>
 
     @GET("/api/transactions")
     suspend fun getTransactions(): Response<List<TransactionResponse>>

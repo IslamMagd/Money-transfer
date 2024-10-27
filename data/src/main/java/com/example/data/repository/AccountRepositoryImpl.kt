@@ -63,6 +63,25 @@ class AccountRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun transferMoney(
+        transferMoneyParameters: TransferMoneyParameters
+    ): Flow<Status<Unit>> {
+        return flow {
+            emit(Status.Loading)
+            val result = moneyTransferService.transferMoney(
+                TransferParametersMapper().map(transferMoneyParameters)
+            )
+            if (result.isSuccessful) {
+                Log.d("trace", "success")
+                emit(Status.Success(Unit))
+            } else {
+                val errorBody = result.errorBody()?.string()
+                val errorResponse = errorBody?.let { parseErrorResponse(it) }
+                val errorMessage = errorResponse?.message ?: "Unknown error"
+                emit(Status.Error(errorMessage))
+            }
+        }
+    }
 
     override suspend fun getBalance(accountNumber: String): Flow<Status<Balance?>> {
         return flow {
