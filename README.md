@@ -106,7 +106,73 @@ Watch a detailed video overview of the Money Transfer app functionality on [Goog
 * [Model-View-ViewModel (MVVM)](https://developer.android.com/topic/libraries/architecture/viewmodel) 
 * [SharedPreferences](https://developer.android.com/training/data-storage/shared-preferences) 
 * [Dependency Injection with Hilt](https://developer.android.com/training/dependency-injection/hilt-android) 
-* [Clean Architecture](https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started) 
+* [Clean Architecture](https://www.raywenderlich.com/3595916-clean-architecture-tutorial-for-android-getting-started)
+
+  ## Installation
+
+> **Note:** For now, the backend runs on `localhost` due to the expiration of the deployment server. Kindly ensure the backend is set up and running locally before proceeding with the setup steps below.
+
+### Prerequisites
+
+- **Backend:**  
+  - Java 21  
+  - Maven 3.6+  
+  - MySQL database  
+  - H2 database  
+  - Redis server  
+- **Android:**  
+  - Android Studio 
+  - Android SDK  
+
+### Steps  
+
+#### Backend Setup  
+
+1. **Clone the backend repository:**  
+
+    ```bash  
+    git clone https://github.com/IslamMagd/Money-Transfer-Service-API  
+    cd Money-Transaction-Service  
+    ```  
+
+2. **Set up the MySQL database:**  
+
+    ```sql  
+    CREATE DATABASE money_transaction_service;  
+    ```  
+
+3. **Configure the `application-mysql-prod.properties` file:**  
+
+    Update the `src/main/resources/application-mysql-prod.properties` file with your MySQL configurations.  
+
+    ```properties  
+    spring.datasource.url=jdbc:mysql://localhost:3306/money_transaction_service  
+    spring.datasource.username=your_mysql_username  
+    spring.datasource.password=your_mysql_password  
+    ```  
+
+4. **Build and run the application:**  
+
+    ```bash  
+    mvn clean install  
+    mvn spring-boot:run  
+    ```  
+
+#### Android App Setup  
+
+5. **Clone the Android project repository:**  
+
+    ```bash  
+    git clone https://github.com/IslamMagd/Money-transfer  
+    ```  
+
+6. **Open the project in Android Studio.**  
+
+7. **Build and run the application:**  
+
+    - Select an emulator or a connected physical device.  
+    - Build and run the app in Android Studio.  
+
 
 For a complete list of dependencies, please refer to the `build.gradle` files.
 
